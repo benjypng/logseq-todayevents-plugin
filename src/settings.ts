@@ -13,6 +13,7 @@ export const settings: SettingSchemaDesc[] = [
     type: 'string',
     default: '',
     title: 'iCal URL',
-    description: 'Link to .ics file',
+    description:
+      'Link to .ics file. Should begin with either https:// or file://',
   },
 ]
