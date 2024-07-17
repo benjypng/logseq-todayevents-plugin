@@ -1,11 +1,11 @@
 {
-	"name": "<insert-plugin-name>",
+	"name": "logseq-ical-plugin",
 	"author": "",
 	"description": "",
 	"license": "MIT",
 	"logseq": {
-		"id": "<insert-plugin-name>",
-		"title": "<insert-plugin-name>",
+		"id": "logseq-ical-plugin",
+		"title": "logseq-ical-plugin",
 		"icon": "./icon.svg",
 		"main": "dist/index.html"
 	},
@@ -23,7 +23,7 @@
 				"@semantic-release/github",
 				{
 					"assets": [
-						"<insert-plugin-name>.zip"
+						"logseq-ical-plugin.zip"
 					]
 				}
 			]
@@ -31,6 +31,9 @@
 	},
 	"dependencies": {
 		"@logseq/libs": "^0.0.15",
+		"axios": "^1.7.2",
+		"date-fns": "^3.6.0",
+		"ical.js": "^2.0.1",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1"
 	},
