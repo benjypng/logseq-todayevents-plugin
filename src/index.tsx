@@ -12,6 +12,27 @@ const main = async () => {
   // Used to handle any popups
   handlePopup()
 
+  logseq.onSettingsChanged(async () => {
+    // Check that URL ends with .ics
+    if (!(logseq.settings!.icalTemplateUrl as string).endsWith('.ics')) {
+      await logseq.UI.showMsg('iCal url must end with .ics')
+    }
+    // Check if block exists
+    if (logseq.settings!.icalTemplateBlockRef) {
+      const blockUUID = logseq
+        .settings!.icalTemplateBlockRef.replace('((', '')
+        .replace('))', '')
+      try {
+        await logseq.Editor.getBlock(blockUUID)
+      } catch (e) {
+        await logseq.UI.showMsg(
+          `Ensure template's block reference is added to plugin settings before pulling today's events`,
+          'warning',
+        )
+      }
+    }
+  })
+
   await logseq.Editor.registerSlashCommand("Pull today's events", async (e) => {
     if (
       !logseq.settings!.icalTemplateUrl ||
@@ -20,8 +41,10 @@ const main = async () => {
       return
 
     const todaysEvents = await getTodaysEvents()
-    if (todaysEvents.length == 0) return
-    console.log(todaysEvents)
+    if (todaysEvents.length == 0) {
+      await logseq.UI.showMsg('No events today', 'success')
+      return
+    }
 
     const templateStr = await handleTemplateString()
     if (!templateStr) {

@@ -84,6 +84,7 @@ export const getTodaysEvents = async (): Promise<TodayEvent[]> => {
     return todayEvents
   } catch (error) {
     console.error(error)
+    await logseq.UI.showMsg('Error retrieving events', 'error')
     throw new Error('Error retrieving events')
   }
 }
