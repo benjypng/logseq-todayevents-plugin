@@ -20,7 +20,7 @@ As calendar events change quite dynamically, it doesn't make sense to me to take
 ## Template Glossary
 
 | Template Param  | iCalendar Property | Description |
-|=================|====================|=============|
+|-----------------|--------------------|-------------|
 | <%attendees%>   | ATTENDEE           | List of event attendees with their email addresses |
 | <%summary%>     | SUMMARY            | Subject of the event |
 | <%description%> | DESCRIPTION        | Detailed description of the event |
