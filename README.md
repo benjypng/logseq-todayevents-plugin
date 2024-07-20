@@ -34,6 +34,26 @@ As calendar events change quite dynamically, it doesn't make sense to me to take
 | <%rrule%>       | RRULE              | Recurrence rule for repeating events |
 | <%status%>      | STATUS             | Status of the event (e.g., CONFIRMED, TENTATIVE, CANCELLED) |
 
+## Obtaining the iCal link
+
+Google Calendar:
+
+1. Open Google Calendar
+2. Click the gear icon (Settings)
+3. Select "Settings"
+4. Click on the calendar you want to share under "Settings for my calendars"
+5. Scroll to "Integrate calendar"
+6. Copy the "Secret address in iCal format"
+
+Outlook Web:
+
+1. Log in to Outlook.com
+2. Click the calendar icon
+3. Click "Share" and then "Get a link"
+4. Choose "Can view all details" from the dropdown
+5. Click "Generate"
+6. Copy the generated ICS link
+
 # Installation
 
 Recommend to install from the marketplace. If not, download a release and manually load it in Logseq.
